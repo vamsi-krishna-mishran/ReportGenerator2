@@ -1,0 +1,245 @@
+﻿
+@section Scripts{
+    <script src="~/js/Capa.js"></script>
+}
+
+<h4>Corrective Action- Preventive Action Report (CAPA)</h4>
+<div style="width:70%;margin-bottom:10px">
+    <button style="float:right;" id="ntab1" class="btn btn-outline-primary next mx-3">Next</button>
+    <button style="float:right;" id="ptab1" class="btn btn-outline-primary prev">Previous</button>
+
+</div>
+<form class="formClass" id="capaform" autocomplete="off">
+    
+    <div id="maindiv">
+        <div class="tabs" id="tab1">
+            <h3>CAPA</h3>
+            <hr />
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label for="inputEmail4">Necessity for CAPA </label>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="cncr" name="cncr" >
+                            <label class="form-check-label" for="cncr">NCR</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="crma" name="crma">
+                            <label class="form-check-label" for="crma">RMA</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="coppur" name="coppur">
+                            <label class="form-check-label" for="coppur">Oppurtunity</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="coth" name="coth">
+                            <label class="form-check-label" for="coth">Others</label>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="docno">Doc No.</label>
+                    <input type="text" class="form-control" id="docno" name="docno" placeholder="Doc Num..">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="capa">CAPA</label>
+                    <input type="text" class="form-control" id="capa" name="capa" placeholder="CAPA">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class=' col-md-6'>
+                    <label for="nroref">NCR/RMA/other reference:</label>
+                    <textarea rows="1" class="form-control" id="nroref" name="nroref" placeholder="Enter References..."></textarea>
+                </div>
+                <div class='form-group col-md-3'>
+                    <label for="customer">Customer</label>
+                    <input type="text" class="form-control" id="customer" name="customer" placeholder="Customer...">
+                </div>
+                <div class='form-group col-md-3'>
+                    <label for="date">Date</label>
+                    <input type="date" class="form-control" id="date" name="date" placeholder="date">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class=' col-md-9'>
+                    <label for="pppdetails">Project/Product/ Part No & details:</label>
+                    <textarea  rows="1" class="form-control" name="pppdetails"  id="pppdetails" placeholder="Enter Details..."></textarea>
+                </div>
+                <div class='form-group col-md-3'>
+                    <label for="woid">WO ID</label>
+                    <input type="text" class="form-control" name="woid" id="woid" placeholder="WO ID">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class=' col-md-12'>
+                    <label for="iop">Identification of Problem</label>
+                    <textarea  rows="1" class="form-control" id="iop" name="iop" placeholder="Identification Of Problem..."></textarea>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class=' col-md-12'>
+                    <label for="cca">Correction/Containment Action</label>
+                    <textarea  rows="1" class="form-control" id="cca" name="cca" placeholder="containment action..."></textarea>
+                </div>
+            </div>
+
+        </div>
+    
+    
+        <div class="tabs" id="tab2">
+            <h3>Why-why Analysis</h3>
+            <hr/>
+            <div class="form-row">
+                <div class="col-md-6 flex-row">
+                    <label for="w1">Why 1</label>
+                    <textarea  rows="1" class="form-control" id="w1" name="w1" placeholder="why 1"></textarea>
+                </div>
+                <div class="col-md-6 flex-row">
+                    <label for="a1">Ans :</label> 
+                    <textarea  rows="1" class="form-control" id="a1" name="a1" placeholder="ans 1"></textarea>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="col-md-6 flex-row">
+                    <label for="w2">Why 2</label>
+                    <textarea rows="1" class="form-control" id="w2" name="w2" placeholder="why 2"></textarea>
+                </div>
+                <div class="col-md-6 flex-row">
+                    <label for="a2">Ans :</label>
+                    <textarea rows="1" class="form-control" id="a2" name="a2" placeholder="ans 2"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 flex-row">
+                    <label for="w3">Why 3</label>
+                    <textarea rows="1" class="form-control" id="w3" name="w3" placeholder="why 3"></textarea>
+                </div>
+                <div class="col-md-6 flex-row">
+                    <label for="a3">Ans :</label>
+                    <textarea rows="1" class="form-control" id="a3" name="a3" placeholder="ans 3"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 flex-row">
+                    <label for="w4">Why 4</label>
+                    <textarea rows="1" class="form-control" id="w4" name="w4" placeholder="why 4"></textarea>
+                </div>
+                <div class="col-md-6 flex-row">
+                    <label for="a4">Ans :</label>
+                    <textarea rows="1" class="form-control" id="a4" name="a4" placeholder="ans 4"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 flex-row">
+                    <label for="w5">Why 5</label>
+                    <textarea rows="1" class="form-control" id="w5" name="w5" placeholder="why 5"></textarea>
+                </div>
+                <div class="col-md-6 flex-row">
+                    <label for="a5">Ans :</label>
+                    <textarea rows="1" class="form-control" id="a5" name="a5" placeholder="ans 5"></textarea>
+                </div>
+            </div>
+        
+            <div class="form-row">
+                <div class="col-md-12">
+                    <label for="rc1">RC (Root Cause)</label>
+                    <textarea  rows="1" class="form-control" id="rc1" name="rc1" placeholder="Root cause ..."></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12">
+                    <label>R C(Root Cause)</label>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="pbc" name="pbc">
+                            <label class="form-check-label" for="pbc">Poor Basic Conditions</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="poc" name="poc">
+                            <label class="form-check-label" for="poc">Poor Operating Conditions</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="deter" name="deter" >
+                            <label class="form-check-label" for="deter">Deterioration</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="wap" name="wap">
+                            <label class="form-check-label" for="wap">Week Assembly Process</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="wd" name="wd">
+                            <label class="form-check-label" for="wd">Weak Design</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="pc" name="pc">
+                            <label class="form-check-label" for="pc">Poor Skills</label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+   
+   
+        <div class="tabs" id="tab3">
+            <h3>Implementation Of Action Plan</h3>
+            <hr/>
+            <div class="form-row">
+                <div class="col-md-5">
+                    <label for="ca">Corrective Action</label>
+                    <textarea  rows="1" class="form-control" id="ca" name="ca" placeholder="corrective action..."></textarea>
+                </div>
+                <div class="col-md-3">
+                    <label for="ctd">Target Date</label>
+                    <input type="date" class="form-control" id="ctd" name="ctd" placeholder="date" />
+                </div>
+                <div class="col-md-4">
+                    <label for="crps">Responsible Person Sign</label>
+                    <input type="text" class="form-control" id="crps" name="crps" placeholder="sign..." />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-5">
+                    <label for="pa">Prevention Action</label>
+                    <textarea  rows="1" class="form-control" id="pa" name="pa" placeholder="Action ...."></textarea>
+                </div>
+                <div class="col-md-3">
+                    <label for="ptd">Target Date</label>
+                    <input type="date" class="form-control" id="ptd" name="ptd" placeholder="Date..." />
+                </div>
+                <div class="col-md-4">
+                    <label for="prps">Responsible Person Sign</label>
+                    <input type="text" class="form-control" id="prps" name="prps" placeholder="signature" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-3">
+                    <label for="prepby">Prepared By</label>
+                    <input type="text" class="form-control" id="prepby" name="prepby"/>
+                </div>
+                <div class="col-md-4">
+                    <label for="appby">Approved By</label>
+                    <input type="text" class="form-control" id="appby" name="appby" />
+                </div>
+                <div class="col-md-5">
+                    <label for="verby">Verification of Implementation By</label>
+                    <input type="text" class="form-control" id="verby" name="verby"  />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary my-3">Submit</button>
+        </div>
+        
+    </div>
+</form>
+

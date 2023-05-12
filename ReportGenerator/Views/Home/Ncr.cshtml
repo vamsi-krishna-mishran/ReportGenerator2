@@ -1,0 +1,126 @@
+﻿@section Scripts{
+    <script src="~/js/Ncr.js"></script>
+}
+
+<form class="formClass" id="capaform" autocomplete="off">
+    <h4 style="padding:10px;">Non Conformance Report (NCR)</h4>
+    <hr/>
+    <div id="maindiv">
+        <div class="tabs" id="tab1">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    
+                    <label for="dno">Doc No</label>
+                    <input type="text" rows="1" class="form-control" id="dno" name="dno" placeholder="Enter References..."/>
+                   
+                    
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="pname">Project Name</label>
+                    <input type="text" class="form-control" id="pname" name="pname" placeholder="Doc Num..">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="ppm">Part/Process/Material</label>
+                    <input type="text" class="form-control" id="ppm" name="ppm" placeholder="CAPA">
+                </div>
+            </div>
+
+            <div class="form-row">
+                
+                <div class='form-group col-md-4'>
+                    <label for="date1">Date</label>
+                    <input type="date" class="form-control" id="date1" name="date1" placeholder="Customer...">
+                </div>
+                <div class='form-group col-md-4'>
+                    <label for="rdoc">Reference Doc</label>
+                    <input type="text" class="form-control" id="rdoc" name="rdoc" placeholder="date">
+                </div>
+                <div class='form-group col-md-4'>
+                    <label for="woid">Work Order ID</label>
+                    <input type="text" class="form-control" id="woid" name="woid" placeholder="date">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class='form-group col-md-6'>
+                    <label for="dnc">Description of Non conference</label>
+                    <textarea rows="2" class="form-control" name="dnc" id="dnc" placeholder="Enter Details..."></textarea>
+                </div>
+                <div class='form-group col-md-6'>
+                    <label for="iby">Identified By</label>
+                    <textarea rows="2" class="form-control" name="iby" id="iby" placeholder="WO ID"></textarea>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class='form-group col-md-6'>
+                    <label class="pb-4" for="rnc">Reason(s) for Non conference
+                    </label>
+                    <textarea rows="2" class="form-control" name="rnc" id="rnc" placeholder="Enter Details..."></textarea>
+                </div>
+                <div class='form-group col-md-6'>
+                    <label for="iar">Immediate Action Required(correction/containment)</label>
+                    <textarea rows="2" class="form-control" name="iar" id="iar" placeholder="WO ID"></textarea>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class='col-md-4'>
+                    <label for="capa">CAPA Ref No.</label>
+                    <input type="text"  class="form-control" id="capa" name="capa" placeholder="Identification Of Problem..."/>
+                </div>
+                <div class='form-conrol col-md-3'>
+                    <label for="date2">Date</label>
+                    <input type="date" class="form-control" id="date2" name="date2" placeholder="Identification Of Problem..." />
+                </div>
+                <div class="col-md-5">
+                    <label >Type</label>
+                    <div class="d-flex pt-1">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="electrical" name="electrical">
+                            <label class="form-check-label" for="electrical">Electrical</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="mechanical" name="mechanical">
+                            <label class="form-check-label" for="mechanical">Mechanical</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class=' col-md-4'>
+                    <label for="rby">Raised By</label>
+                    <input type="text" class="form-control" id="rby" name="rby" placeholder="Identification Of Problem..." />
+                </div>
+                <div class='col-md-4'>
+                    <label for="vby">Verified By</label>
+                    <input type="text" class="form-control" id="vby" name="vby" placeholder="Identification Of Problem..." />
+                </div>
+
+                <div class='col-md-4'>
+                    <label for="aby">Approved By</label>
+                    <input type="text" class="form-control" id="aby" name="aby" placeholder="Identification Of Problem..." />
+                </div>
+               
+            </div>
+
+            <div class="form-row">
+                <div class='col-md-4'>
+                    <label for="cby">Closed By</label>
+                    <input type="text" class="form-control" id="cby" name="cby" placeholder="Identification Of Problem..." />
+                </div>
+                <div class='col-md-4'>
+                    <label for="date3">Date</label>
+                    <input type="date" class="form-control" id="date3" name="date3"  />
+                </div>
+                <div class="col-md-4 d-flex" style="justify-content:center;align-items:end">
+                    <button class="btn btn-primary" type="submit">Generate Report</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+
