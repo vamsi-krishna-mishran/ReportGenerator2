@@ -25,7 +25,13 @@ namespace ReportGenerator.Controllers
         private static Dictionary<string,string> capaData = new Dictionary<string,string>();
         private static JObject JCapadate = null;
         private static JObject JNcrdata= null;
-       
+        //-- Declare these variables globally so you can use them in different functions
+        static string FONT = "c:/windows/fonts/wingding.ttf";
+        static string FONT2 = "c:/windows/fonts/wingding.ttf";
+        static string TEXT = "o x \u00fd \u00fe";
+        static string TEXT2 = "o";
+        static string TEXT3 = "\u00fe";
+
 
         public HomeController(ILogger<HomeController> logger, IWebHostEnvironment webHostEnvironment)
         {
@@ -98,12 +104,20 @@ namespace ReportGenerator.Controllers
                     table.AddCell(cell);
                     refreshCell(ref cell);
                     cell.Colspan = 4;
-                    Paragraph p = new Paragraph();
-                    Chunk temp = new Chunk(getCheckedIcon("off"), 0, 0);
-                    
-                    p.Add(temp);
-                    p.Add(new Chunk("vmasi"));
-                    cell.AddElement(p);
+                    Paragraph checkboxgroup = new Paragraph();
+                    for(int i = 0; i < 4; i++)
+                    {
+                        string label = "NCR";
+                        string statusId = "cncr";
+                        if (i == 1) { label = "RMA";statusId = "crma"; }
+                        else if (i == 2) { label = "Oppurtunity";statusId = "coppur"; }
+                        else if (i == 3) { label = "Others";statusId = "coth"; }
+                        
+                        checkboxgroup.Add(AddCheckbox(JCapadate[statusId].ToString(), label));
+                        checkboxgroup.Add(new Phrase("      "));
+                    }
+;                   cell.AddElement(checkboxgroup);
+                    cell.Colspan = 4;
                     table.AddCell(cell);
                     #region checkbox adding
 
@@ -257,11 +271,37 @@ namespace ReportGenerator.Controllers
                     cell.Colspan = 2;
                     cell.AddElement(new Paragraph($"RC (Root Cause)"));
                     table.AddCell(cell);
+
+                    #region checkboxadd
                     refreshCell(ref cell);
-                    cell.Colspan = 9;
-                    //cell.AddElement(new Paragraph("WO ID:"));
+                    cell.Colspan = 2;
+                    cell.AddElement(AddCheckbox(JCapadate["pbc"].ToString(), "Poor Base Conditions"));
                     table.AddCell(cell);
+                    refreshCell(ref cell);
+                    cell.Colspan = 2;
+                    cell.AddElement(AddCheckbox(JCapadate["poc"].ToString(), "Poor Operating Conditions"));
+                    table.AddCell(cell);
+                    refreshCell(ref cell);
+                    cell.Colspan = 1;
+                    cell.AddElement(AddCheckbox(JCapadate["deter"].ToString(), "Deterioration"));
+                    table.AddCell(cell);
+                    refreshCell(ref cell);
+                    cell.Colspan = 2;
+                    cell.AddElement(AddCheckbox(JCapadate["wap"].ToString(), "Weak Assy Process"));
+                    table.AddCell(cell);
+                    refreshCell(ref cell);
+                    cell.Colspan = 1;
+                    cell.AddElement(AddCheckbox(JCapadate["wd"].ToString(), "Weak Design"));
+                    table.AddCell(cell);
+                    refreshCell(ref cell);
+                    cell.Colspan = 1;
+                    cell.AddElement(AddCheckbox(JCapadate["pc"].ToString(), "Poor Skills"));
+                    table.AddCell(cell);
+
                     pdfDoc.Add(table);
+                    #endregion
+                    //cell.AddElement(new Paragraph("WO ID:"));
+
 
                     refreshCells(ref cell, ref table, 11);
                     table.WidthPercentage = 100;
@@ -357,7 +397,24 @@ namespace ReportGenerator.Controllers
             }
             return View();
         }
+        private static Phrase AddCheckbox(string status, string label)
+        {
+            //-- Local Decleration in function to add check/uncheck box
+            BaseFont bf = BaseFont.CreateFont(FONT, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+            iTextSharp.text.Font fs = new iTextSharp.text.Font(bf, 15);
 
+            Paragraph UnCheck = new Paragraph(TEXT2, fs);
+            Paragraph Check = new Paragraph(TEXT3, fs);
+            Phrase PM = new Phrase();
+            Chunk c1 = new Chunk();
+            if(status=="on")
+            PM.Add(Check);
+            else if(status=="off")
+                PM.Add(UnCheck);
+            c1 = new Chunk(label);
+            PM.Add(c1);
+            return PM;
+        }
         public IActionResult GenerateDummyPdf2()
         {
             try
@@ -452,6 +509,10 @@ namespace ReportGenerator.Controllers
                     refreshCells(ref cell, ref table, 9);
                     table.WidthPercentage = 100;
                     cell.Colspan = 2;
+                    Paragraph checkboxcontent = new Paragraph();
+                    checkboxcontent.Add(AddCheckbox(JNcrdata["electrical"].ToString(), "Electrical\n"));
+                    checkboxcontent.Add(AddCheckbox(JNcrdata["mechanical"].ToString(), "Mechanical"));
+                    cell.AddElement(checkboxcontent);
                    // cell.AddElement(new Chunk("Type"));
                     table.AddCell(cell);
                     refreshCell(ref cell);
@@ -471,6 +532,7 @@ namespace ReportGenerator.Controllers
                     tb.WidthPercentage = 100;
                     PdfPCell tcell = new PdfPCell();
                     tcell.AddElement(new Chunk("Date",boldFont3));
+                    tcell.Padding = 5;
                     tb.AddCell(tcell);
                     refreshCell(ref tcell);
                     tcell.Colspan = 2;
@@ -480,6 +542,7 @@ namespace ReportGenerator.Controllers
                     refreshCells(ref  tcell, ref tb, 3);
                     tb.WidthPercentage = 100;
                     tcell.AddElement(new Chunk("Reference Doc",boldFont3));
+                    tcell.PaddingBottom = 5;
                     tb.AddCell(tcell);
                     refreshCell(ref tcell);
                     tcell.AddElement(new Chunk(JNcrdata["rdoc"].ToString()));
@@ -490,7 +553,7 @@ namespace ReportGenerator.Controllers
                     cell.AddElement(tb);
                     refreshCells(ref tcell, ref tb, 3);
                     tb.WidthPercentage = 100;
-                    tcell.AddElement(new Chunk("Worker ID",boldFont3));
+                    tcell.AddElement(new Chunk("Work Order ID",boldFont3));
                     tb.AddCell(tcell);
                     refreshCell(ref tcell);
                     tcell.AddElement(new Chunk(JNcrdata["woid"].ToString()));
